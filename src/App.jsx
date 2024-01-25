@@ -5,17 +5,19 @@ import ProjectView from './components/project-view/ProjectView';
 
 const App = () => {
   const [projects, setProjects] = useState([]);
-  const [selectedProject, setSelectedProject] = useState();
+  const [selectedProjectId, setSelectedProjectId] = useState();
   const [isAddProjectOpen, setIsAddProjectOpen] = useState(false);
 
-  console.log('projects', projects);
+  const selectedProject = projects.find(
+    (project) => project.id === selectedProjectId
+  );
 
   return (
     <main className="h-screen my-8 flex gap-8">
       <Sidebar
         projects={projects}
         setIsAddProjectOpen={setIsAddProjectOpen}
-        setSelectedProject={setSelectedProject}
+        setSelectedProjectId={setSelectedProjectId}
       />
       <ProjectView
         selectedProject={selectedProject}

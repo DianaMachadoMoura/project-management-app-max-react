@@ -21,7 +21,7 @@ const NewProject = ({ setIsOpen, onSave }) => {
     e.preventDefault();
 
     if (title && description && date) {
-      onSave((prev) => [...prev, { title, description, date }]);
+      onSave({ id: Math.floor(Math.random() * 10), title, description, date });
 
       setIsOpen(false);
     }

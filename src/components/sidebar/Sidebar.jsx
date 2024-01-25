@@ -1,7 +1,7 @@
-const Sidebar = ({ projects, setSelectedProject, setIsAddProjectOpen }) => {
+const Sidebar = ({ projects, setSelectedProjectId, setIsAddProjectOpen }) => {
   const onAddProjectClick = () => {
     setIsAddProjectOpen(true);
-    setSelectedProject(null);
+    setSelectedProjectId(null);
   };
 
   return (
@@ -20,7 +20,7 @@ const Sidebar = ({ projects, setSelectedProject, setIsAddProjectOpen }) => {
           <li key={index}>
             <button
               className="w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800"
-              onClick={() => setSelectedProject(project)}
+              onClick={() => setSelectedProjectId(project.id)}
             >
               {project.title}
             </button>
