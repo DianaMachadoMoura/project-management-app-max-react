@@ -1,13 +1,4 @@
-const AddProjectButton = ({ onAddProjectClick }) => {
-  return (
-    <button
-      className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100"
-      onClick={onAddProjectClick}
-    >
-      + Add Project
-    </button>
-  );
-};
+import Button from '../button/Button';
 
 const ProjectsNav = ({ projects, onSelectProject }) => {
   return (
@@ -33,16 +24,16 @@ const Sidebar = ({ projects, setSelectedProjectId, setIsAddProjectOpen }) => {
   };
 
   const onSelectProject = (id) => {
-    setSelectedProjectId(id)
-  }
+    setSelectedProjectId(id);
+  };
 
   return (
     <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
       <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">
         Your Projects
       </h2>
-      <AddProjectButton onAddProjectClick={onAddProjectClick}/>
-      <ProjectsNav projects={projects} onSelectProject={onSelectProject}/>
+      <Button onClick={onAddProjectClick}>+ Add Project</Button>
+      <ProjectsNav projects={projects} onSelectProject={onSelectProject} />
     </aside>
   );
 };
