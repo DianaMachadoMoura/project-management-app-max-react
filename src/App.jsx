@@ -5,7 +5,7 @@ import ProjectView from './components/project-view/ProjectView';
 
 const App = () => {
   const [projects, setProjects] = useState([]);
-  const [selectedProjectId, setSelectedProjectId] = useState();
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [isAddProjectOpen, setIsAddProjectOpen] = useState(false);
 
   const selectedProject = projects.find(
