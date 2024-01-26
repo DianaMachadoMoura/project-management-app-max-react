@@ -1,15 +1,15 @@
 import Button from '../button/Button';
 
-const ProjectsNav = ({ projects, onSelectProject }) => {
+const ProjectsList = ({ projects, onSelectProject }) => {
   return (
     <ul className="mt-8">
-      {projects.map((project, index) => (
-        <li key={index}>
+      {projects.map(({id, title}) => (
+        <li key={id}>
           <button
             className="w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800"
-            onClick={() => onSelectProject(project.id)}
+            onClick={() => onSelectProject(id)}
           >
-            {project.title}
+            {title}
           </button>
         </li>
       ))}
@@ -33,7 +33,7 @@ const Sidebar = ({ projects, setSelectedProjectId, setIsAddProjectOpen }) => {
         Your Projects
       </h2>
       <Button onClick={onAddProjectClick}>+ Add Project</Button>
-      <ProjectsNav projects={projects} onSelectProject={onSelectProject} />
+      <ProjectsList projects={projects} onSelectProject={onSelectProject} />
     </aside>
   );
 };
