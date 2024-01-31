@@ -6,37 +6,20 @@ const ProjectView = ({
   selectedProject,
   isAddProjectOpen,
   setIsAddProjectOpen,
-  setProjects,
+  onAddProject,
+  onChangeProject,
+  onDeleteProject,
 }) => {
-  const handleAddProject = (project) => {
-    setProjects((prev) => [...prev, project]);
-  };
-
-  const handleDeleteProject = (projectId) => {
-    setProjects((prev) => [...prev.filter(project => project.id !== projectId)])
-  }
-
-  const handleChangeProject = (project) => {
-    setProjects((prev) => {
-      return prev.map((proj) => {
-        if (proj.id === project.id) {
-          return project;
-        }
-        return proj;
-      });
-    });
-  };
-
   return (
-    <div className='mt-24 w-2/3'>
+    <div className="mt-24 w-2/3">
       {selectedProject ? (
         <ProjectDetails
           project={selectedProject}
-          onTaskChange={handleChangeProject}
-          onDelete={handleDeleteProject}
+          onTaskChange={onChangeProject}
+          onDelete={onDeleteProject}
         />
       ) : isAddProjectOpen ? (
-        <NewProject setIsOpen={setIsAddProjectOpen} onSave={handleAddProject} />
+        <NewProject setIsOpen={setIsAddProjectOpen} onSave={onAddProject} />
       ) : (
         <NoProjectSelected setIsAddProjectOpen={setIsAddProjectOpen} />
       )}
