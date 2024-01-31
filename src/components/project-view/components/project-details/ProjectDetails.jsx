@@ -8,7 +8,10 @@ const DATE_OPTIONS = {
 
 const ProjectHeader = ({ project, onDelete }) => {
   const { title, id, description, date } = project;
-  const formattedDate = new Date(date);
+  const formattedDate = new Date(date).toLocaleDateString(
+    'en-us',
+    DATE_OPTIONS
+  );
 
   return (
     <header className="pb-4 mb-4 border-b-2 border-stone-300">
@@ -21,9 +24,7 @@ const ProjectHeader = ({ project, onDelete }) => {
           Delete
         </button>
       </div>
-      <p className="text-stone-400 mb-4">
-        {formattedDate.toLocaleDateString('en-us', DATE_OPTIONS)}
-      </p>
+      <p className="text-stone-400 mb-4">{formattedDate}</p>
       <p className="text-stone-600 whitespace-pre-wrap">{description}</p>
     </header>
   );
